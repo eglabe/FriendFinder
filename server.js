@@ -3,9 +3,10 @@
 // Series of npm packages that we will use to give our server useful functionality
 // ==============================================================================
 
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
+var express = require("express");
+var bodyParser = require("body-parser");
+
+var path = require("path");
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -31,8 +32,19 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 
-require("./app/routing/apiRoutes")(app);
-require("./app/routing/htmlRoutes")(app);
+// require("./app/routing/apiRoutes.js")(app);
+// require("./app/routing/htmlRoutes.js")(app);
+
+
+  app.get("/survey", function(req, res) {
+    res.sendFile(path.join(__dirname, "/app/public/survey.html"));
+  });
+
+  // If no matching route is found default to home
+  app.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "/app/public/home.html"));
+  });
+
 
 // ==============================================================================
 // LISTENER
