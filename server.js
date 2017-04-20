@@ -32,19 +32,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 
-// require("./app/routing/apiRoutes.js")(app);
-// require("./app/routing/htmlRoutes.js")(app);
-
-
-  app.get("/survey", function(req, res) {
-    res.sendFile(path.join(__dirname, "/app/public/survey.html"));
-  });
-
-  // If no matching route is found default to home
-  app.use(function(req, res) {
-    res.sendFile(path.join(__dirname, "/app/public/home.html"));
-  });
-
+require("./app/routing/apiRoutes.js")(app);
+require("./app/routing/htmlRoutes.js")(app);
 
 // ==============================================================================
 // LISTENER
