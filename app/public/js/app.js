@@ -1,3 +1,5 @@
+var friendsArray = require("../../data/friends.js");
+
 var currentURL = window.location.origin;
 
 // get data from our form 
@@ -28,3 +30,23 @@ $("#submitBtn").on('click', function(e){
         console.log(data);
     });
 });
+
+
+var compareFriends = function(newFriend) {
+    for (var i = 0; i < friendsArray.length; i++) {
+        var possibleFriendScores = friendsArray[i].scores;
+        var newFriendScores = newFriend.scores;
+
+        var differencesArr = [];
+
+        for (var j = 0; j < possibleFriendScores.length; j++) {
+            var scoreA = possibleFriendScores[j];
+            var scoreB = newFriendScores[j];
+
+            var diff = Math.abs(scoreA - scoreB);
+            differencesArr.push(diff);
+        }
+        
+    }
+
+}
