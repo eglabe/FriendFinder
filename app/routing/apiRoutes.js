@@ -32,6 +32,7 @@ module.exports = function(app) {
       message: 'Success',
       data: req.body
     });
+    console.log(friendsArray);
   });
   
 };
