@@ -6,11 +6,11 @@ var currentURL = window.location.origin;
 // $.POST(endpoint-url)
 
 $("#submitBtn").on('click', function(e){
-    //e.preventDefault();
+    e.preventDefault();
     var newUser = {
         name: $("#userName").val().trim(),
         photo: $("#userPhoto").val().trim(),
-        scores: {
+        scores: [
             $("#q1").val(),
             $("#q2").val(),
             $("#q3").val(),
@@ -21,13 +21,10 @@ $("#submitBtn").on('click', function(e){
             $("#q8").val(),
             $("#q9").val(),
             $("#q10").val()
-        }
+        ]
     };
 
-
-
-
-    $.post( "/api/friends", { name: "John", time: "2pm" }, function( data ) {
+    $.post( "/api/friends", newUser, function( data ) {
         console.log(data);
     });
 });
