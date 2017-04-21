@@ -37,16 +37,21 @@ var compareFriends = function(newFriend) {
         var possibleFriendScores = friendsArray[i].scores;
         var newFriendScores = newFriend.scores;
 
-        var differencesArr = [];
+        var totalDifferencesArr = [];
+        
 
         for (var j = 0; j < possibleFriendScores.length; j++) {
             var scoreA = possibleFriendScores[j];
             var scoreB = newFriendScores[j];
+            var scoreDifferencesArr = [];
 
             var diff = Math.abs(scoreA - scoreB);
-            differencesArr.push(diff);
+            scoreDifferencesArr.push(diff);
+
+            var sum = scoreDifferencesArr.reduce(function(a, b) { return a + b; }, 0);
+            totalDifferencesArr.push(sum);
         }
-        
+
     }
 
 }
