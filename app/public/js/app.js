@@ -2,11 +2,6 @@ var friendsArray = require("../../data/friends.js");
 
 var currentURL = window.location.origin;
 
-// get data from our form 
-
-// POST data to my endpoint 
-// $.POST(endpoint-url)
-
 $("#submitBtn").on('click', function(e){
     e.preventDefault();
     var newUser = {
